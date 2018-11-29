@@ -91,8 +91,9 @@ export interface UserRegistrationDetails {
 }
 
 export interface UserSignInCredentials {
-  readonly email: string
   readonly password: string
+  readonly signInFieldName: 'email'
+  readonly signInFieldValue: string
 }
 
 export interface UserSignOutCredentials {

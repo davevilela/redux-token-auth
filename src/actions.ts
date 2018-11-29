@@ -190,15 +190,16 @@ const generateAuthActions = (config: { [key: string]: any }): ActionsExport => {
   ) => async function (dispatch: Dispatch<{}>): Promise<void> {
     dispatch(signInRequestSent())
     const {
-      email,
       password,
+      signInFieldName,
+      signInFieldValue
     } = userSignInCredentials
     try {
       const response = await axios({
         method: 'POST',
         url: `${authUrl}/sign_in`,
         data: {
-          email,
+          [signInFieldName]: signInFieldValue,
           password,
         },
       })

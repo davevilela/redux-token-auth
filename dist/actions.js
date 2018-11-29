@@ -174,32 +174,32 @@ var generateAuthActions = function (config) {
     }; };
     var signInUser = function (userSignInCredentials) { return function (dispatch) {
         return __awaiter(this, void 0, void 0, function () {
-            var email, password, response, userAttributesToSave, error_3;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var password, signInFieldName, signInFieldValue, response, userAttributesToSave, error_3, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         dispatch(exports.signInRequestSent());
-                        email = userSignInCredentials.email, password = userSignInCredentials.password;
-                        _a.label = 1;
+                        password = userSignInCredentials.password, signInFieldName = userSignInCredentials.signInFieldName, signInFieldValue = userSignInCredentials.signInFieldValue;
+                        _b.label = 1;
                     case 1:
-                        _a.trys.push([1, 3, , 4]);
+                        _b.trys.push([1, 3, , 4]);
                         return [4 /*yield*/, axios_1.default({
                                 method: 'POST',
                                 url: authUrl + "/sign_in",
-                                data: {
-                                    email: email,
-                                    password: password,
-                                },
+                                data: (_a = {},
+                                    _a[signInFieldName] = signInFieldValue,
+                                    _a.password = password,
+                                    _a),
                             })];
                     case 2:
-                        response = _a.sent();
+                        response = _b.sent();
                         auth_1.setAuthHeaders(response.headers);
                         auth_1.persistAuthHeadersInDeviceStorage(Storage, response.headers);
                         userAttributesToSave = auth_1.getUserAttributesFromResponse(userAttributes, response);
                         dispatch(exports.signInRequestSucceeded(userAttributesToSave));
                         return [3 /*break*/, 4];
                     case 3:
-                        error_3 = _a.sent();
+                        error_3 = _b.sent();
                         dispatch(exports.signInRequestFailed());
                         throw error_3;
                     case 4: return [2 /*return*/];
