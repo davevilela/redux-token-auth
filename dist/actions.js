@@ -174,13 +174,12 @@ var generateAuthActions = function (config) {
     }; };
     var signInUser = function (userSignInCredentials) { return function (dispatch) {
         return __awaiter(this, void 0, void 0, function () {
-            var password, signInFieldName, signInFieldValue, response, userAttributesToSave, error_3, _a;
+            var password, signInFieldName, signInFieldValue, additional_data, response, userAttributesToSave, error_3, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         dispatch(exports.signInRequestSent());
-                        password = userSignInCredentials.password, signInFieldName = userSignInCredentials.signInFieldName, signInFieldValue = userSignInCredentials.signInFieldValue,
-                        additional_data = userSignInCredentials.additional_data;
+                        password = userSignInCredentials.password, signInFieldName = userSignInCredentials.signInFieldName, signInFieldValue = userSignInCredentials.signInFieldValue, additional_data = userSignInCredentials.additional_data;
                         _b.label = 1;
                     case 1:
                         _b.trys.push([1, 3, , 4]);
@@ -190,6 +189,7 @@ var generateAuthActions = function (config) {
                                 data: (_a = {},
                                     _a[signInFieldName] = signInFieldValue,
                                     _a.password = password,
+                                    _a.additional_data = additional_data,
                                     _a),
                             })];
                     case 2:
