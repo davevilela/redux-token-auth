@@ -192,7 +192,8 @@ const generateAuthActions = (config: { [key: string]: any }): ActionsExport => {
     const {
       password,
       signInFieldName,
-      signInFieldValue
+      signInFieldValue,
+      additional_data,
     } = userSignInCredentials
     try {
       const response = await axios({
@@ -201,6 +202,7 @@ const generateAuthActions = (config: { [key: string]: any }): ActionsExport => {
         data: {
           [signInFieldName]: signInFieldValue,
           password,
+          additional_data,
         },
       })
       setAuthHeaders(response.headers)

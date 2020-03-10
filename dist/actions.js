@@ -179,7 +179,8 @@ var generateAuthActions = function (config) {
                 switch (_b.label) {
                     case 0:
                         dispatch(exports.signInRequestSent());
-                        password = userSignInCredentials.password, signInFieldName = userSignInCredentials.signInFieldName, signInFieldValue = userSignInCredentials.signInFieldValue;
+                        password = userSignInCredentials.password, signInFieldName = userSignInCredentials.signInFieldName, signInFieldValue = userSignInCredentials.signInFieldValue,
+                        additional_data = userSignInCredentials.additional_data;
                         _b.label = 1;
                     case 1:
                         _b.trys.push([1, 3, , 4]);
